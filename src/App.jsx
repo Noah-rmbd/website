@@ -47,7 +47,7 @@ export default function PersonalBrandingSite() {
           {/* Minimized Terminal */}
           {isMinimized && (
             <motion.div
-              className="bg-gray-800 text-gray-300 p-2 rounded-md text-sm cursor-pointer"
+              className="bg-gray-800 text-gray-300 lg:p-2 p-1 rounded-md text-sm cursor-pointer"
               initial={{ opacity: 0, x: 50 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.3 }}
@@ -62,7 +62,7 @@ export default function PersonalBrandingSite() {
       </nav>
 
       {/* Hero Section */}
-      <div className="flex-col w-[95%] flex justify-center items-center items-center justify-center text-left mt-36">
+      <div className="flex-col w-[95%] flex justify-center items-center items-center justify-center text-left lg:mt-36 mt-26">
         <motion.div
           className="p-12 rounded-[14px] w-full h-[60vh] bg-gradient-to-r from-orange-500 to-purple-600 shadow-2xl mx-6"
           initial={{ opacity: 0, y: 20 }}
@@ -70,8 +70,8 @@ export default function PersonalBrandingSite() {
           transition={{ duration: 1 }}
         >
           
-          <h2 className="text-[64px] font-HelveticaNeue font-bold">Welcome, I’m Noah Raimbaud</h2>
-          <p className="mt-4 text-[20px] font-MonoR">
+          <h2 className="text-[64px]/16 font-HelveticaNeue font-bold">Welcome, I’m Noah Raimbaud</h2>
+          <p className="mt-4 lg:text-[20px] text-[16px] font-MonoR">
             Student in computer science and applied mathematics, navigate through the site using the terminal or the nav bar.
           </p>
         </motion.div>
