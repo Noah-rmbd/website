@@ -70,3 +70,24 @@ button:focus-visible {
     background-color: #f9f9f9;
   }
 }
+
+@font-face {
+  font-family: HelveticaNeue;
+  src: url("fonts/HelveticaNeueMedium.otf");
+}
+
+@font-face {
+  font-family: MonoM;
+  src: url("fonts/SF-Mono-Medium.otf");
+}
+
+@font-face {
+  font-family: MonoR;
+  src: url("fonts/SF-Mono-Regular.otf");
+}
+
+@theme{
+  --font-HelveticaNeue: HelveticaNeue;
+  --font-MonoR: MonoR;
+  --font-MonoM: MonoM;
+}
