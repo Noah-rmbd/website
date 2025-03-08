@@ -1,5 +1,6 @@
 import './App.css';
 import './global.css';
+import Terminal from './Terminal';
 
 import { useState, useEffect } from "react";
 import { Menu } from "lucide-react";
@@ -41,7 +42,7 @@ export default function PersonalBrandingSite() {
   return (
     <div className="min-h-screen w-screen bg-black text-white flex-col flex items-center">
       {/* Navbar */}
-      <nav className="w-[92%] max-w-400 rounded-[8px] lg:rounded-[14px] bg-black flex justify-between items-center p-1 lg:p-2 lg:p-4 m-8 text-lg shadow-md fixed">
+      <nav className="w-[92%] max-w-400 rounded-[8px] lg:rounded-[14px] bg-black flex justify-between items-center p-1 lg:p-2 lg:p-4 m-8 text-lg shadow-md fixed z-30">
         <h1 className="lg:text-[36px] text-2xl ml-2 font-['Familjen_Grotesk'] font-bold">\Noah Raimbaud</h1>
         <div className="flex items-center gap-4">
           {/* Minimized Terminal */}
@@ -62,9 +63,9 @@ export default function PersonalBrandingSite() {
       </nav>
 
       {/* Hero Section */}
-      <div className="flex-col w-[95%] flex justify-center items-center items-center justify-center text-left lg:mt-36 mt-26">
+      <div className="relative flex-col w-[95%] flex justify-center items-center items-center justify-center text-left lg:mt-36 mt-26">
         <motion.div
-          className="p-12 rounded-[14px] w-full h-[60vh] bg-gradient-to-r from-orange-500 to-purple-600 shadow-2xl mx-6"
+          className="p-12 rounded-[14px] w-full h-[60vh] bg-gradient-to-r from-orange-500 to-purple-600 shadow-2xl mx-6 z-10"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1 }}
@@ -78,17 +79,15 @@ export default function PersonalBrandingSite() {
 
         {/* Terminal UI with Minimization Effect */}
         <motion.div
-          className="mt-8 p-6 rounded-lg bg-gray-800 text-gray-300 w-full max-w-2xl font-mono text-lg shadow-lg"
+          className="absolute top-[calc(100%-150px)] lg:top-[calc(100%-250px)] mt-8 rounded-lg bg-gray-800 text-gray-300 w-[90%] max-w-4xl font-mono text-lg shadow-lg z-20"
           initial={{ opacity: 1, scale: 1, x: 0, y: 0 }}
           animate={isMinimized ? { opacity: 0, scale: 0.5, x: 400, y: -300 } : { opacity: 1, scale: 1, x: 0, y: 0 }}
           transition={{ duration: 0.2 }}
         >
-          <div className="flex space-x-2 mb-2">
-            <span className="w-3 h-3 bg-red-500 rounded-full"></span>
-            <span className="w-3 h-3 bg-yellow-500 rounded-full"></span>
-            <span className="w-3 h-3 bg-green-500 rounded-full"></span>
+          <div>
+            <Terminal/>
           </div>
-          <p>{displayedText}</p>
+          
         </motion.div>
       </div>
 
