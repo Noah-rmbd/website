@@ -5,3 +5,61 @@ html, body {
     margin: 90;
     
 }
+
+.noise-overlay {
+    position: absolute;
+    inset: 0;
+    background-color: transparent;
+    filter: url(#noiseFilter);
+    opacity: 0.07; /* Adjust for stronger or weaker noise */
+    pointer-events: none;
+  }
+
+  .gradient-background {
+    background: linear-gradient(316deg,deepskyblue,blue,#ff00ee,#ffb500);
+    background-size: 200% 200%;
+    animation: gradient-animation 10s ease infinite;
+  }
+
+
+  .grain {
+    position: absolute;
+    background-image: url(https://upload.wikimedia.org/wikipedia/commons/5/5c/Image_gaussian_noise_example.png);
+    background-size: 100% 100%;
+    opacity: 0.15;
+    
+
+
+    @-webkit-keyframes noise {
+      to { transform: translate3d(-7rem,0,0) }
+    }
+
+    @keyframes noise {
+      0% { transform: translate3d(0,9rem,0) }
+      10% { transform: translate3d(-1rem,-4rem,0) }
+      20% { transform: translate3d(-8rem,2rem,0) }
+      30% { transform: translate3d(9rem,-9rem,0) }
+      40% { transform: translate3d(-2rem,7rem,0) }
+      50% { transform: translate3d(-9rem,-4rem,0) }
+      60% { transform: translate3d(2rem,6rem,0) }
+      70% { transform: translate3d(7rem,-8rem,0) }
+      80% { transform: translate3d(-9rem,1rem,0) }
+      90% { transform: translate3d(6rem,-5rem,0) }
+      to { transform: translate3d(-7rem,0,0) }
+    }
+  }
+
+
+
+  
+  @keyframes gradient-animation {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }

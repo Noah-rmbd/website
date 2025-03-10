@@ -1,3 +1,4 @@
+
 #root {
   
   margin: 0 auto;
@@ -38,5 +39,10 @@
 }
 
 .read-the-docs {
+  color: #888;
+}
+
+
+.gradient {
   color: #888;
 }

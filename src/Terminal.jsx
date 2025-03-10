@@ -368,10 +368,17 @@ const Terminal = () => {
   
   return (
     <div 
-      className="w-full h-[200px] lg:h-[300px] bg-gray-900 rounded-md overflow-hidden flex flex-col font-mono text-sm"
+      className="w-full h-[200px] lg:h-[300px] bg-opacity-20 rounded-md overflow-hidden flex flex-col font-mono text-sm backdrop-blur-md"
       onClick={handleTerminalClick}
+      style={{ 
+        backgroundColor: 'rgba(17, 24, 39, 0.75)', // Transparent dark background
+        boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08)',
+        border: '1px solid rgba(31, 41, 55, 0.5)'
+      }}
     >
-      <div className="bg-gray-800 p-2 border-b border-gray-700 flex items-center">
+      <div className="p-2 border-b border-gray-700 flex items-center"
+           style={{ backgroundColor: 'rgba(31, 41, 55, 0.5)' }} 
+      >
         <div className="flex space-x-2 mr-4">
           <div className="w-3 h-3 rounded-full bg-red-500"></div>
           <div className="w-3 h-3 rounded-full bg-yellow-500"></div>
@@ -382,7 +389,8 @@ const Terminal = () => {
       
       <div 
         ref={terminalRef}
-        className="flex-1 p-2 overflow-y-auto text-gray-200 bg-gray-900"
+        className="flex-1 p-2 overflow-y-auto text-gray-200"
+        style={{backgroundColor: 'transparent'}}
       >
         {history.map((item, index) => (
           <div key={index} className={`mb-1 ${item.isCommand ? 'text-green-400' : 'text-gray-300'}`}>
@@ -391,7 +399,10 @@ const Terminal = () => {
         ))}
       </div>
       
-      <form onSubmit={handleSubmit} className="flex p-2 bg-gray-900 border-t border-gray-800">
+      <form onSubmit={handleSubmit} 
+      className="flex p-2 border-t border-gray-800"
+      style={{ backgroundColor: 'transparent' }}
+      >
         <span className="text-green-500 mr-2">{currentDirectory} $</span>
         <input
           ref={inputRef}
