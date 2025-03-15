@@ -12,21 +12,24 @@ const Terminal = () => {
 
   // File system simulation - flat structure with paths as keys
   const [fileSystem, setFileSystem] = useState({
-    '/home/user': { type: 'directory', contents: ['documents', 'pictures', 'projects', 'hello.txt'] },
-    '/home/user/documents': { type: 'directory', contents: ['resume.pdf', 'notes.txt'] },
+    '/home/user': { type: 'directory', contents: ['education', 'projects', 'aboutme.txt', 'contact.txt', 'readme.txt'] },
+    '/home/user/education': { type: 'directory', contents: ['high-school.txt', 'polytech-angers.txt', 'linköping-universitet.txt','polytech-paris-saclay.txt'] },
     '/home/user/pictures': { type: 'directory', contents: ['vacation', 'profile.png'] },
     '/home/user/pictures/vacation': { type: 'directory', contents: ['beach.jpg', 'mountain.jpg'] },
-    '/home/user/projects': { type: 'directory', contents: ['webapp'] },
-    '/home/user/projects/webapp': { type: 'directory', contents: ['index.html', 'styles.css', 'app.js'] },
-    '/home/user/hello.txt': { type: 'file', size: '1 KB' },
-    '/home/user/documents/resume.pdf': { type: 'file', size: '245 KB' },
-    '/home/user/documents/notes.txt': { type: 'file', size: '12 KB' },
+    '/home/user/projects': { type: 'directory', contents: ['m-ai-ntenance'] },
+    '/home/user/projects/m-ai-ntenance': { type: 'directory', contents: ['readme'] },
+    '/home/user/aboutme.txt': { type: 'file', size: '3 KB' },
+    '/home/user/readme.txt': { type: 'file', size: '1 KB' },
+    '/home/user/contact.txt': { type: 'file', size: '6 KB' },
+    '/home/user/education/high-school.txt': { type: 'file', size: '25 KB' },
+    '/home/user/education/polytech-angers.txt': { type: 'file', size: '13 KB' },
+    '/home/user/education/linköping-universitet.txt': { type: 'file', size: '21 KB' },
+    '/home/user/education/polytech-paris-saclay.txt': { type: 'file', size: '34 KB' },
     '/home/user/pictures/profile.png': { type: 'file', size: '350 KB' },
     '/home/user/pictures/vacation/beach.jpg': { type: 'file', size: '1.2 MB' },
     '/home/user/pictures/vacation/mountain.jpg': { type: 'file', size: '950 KB' },
-    '/home/user/projects/webapp/index.html': { type: 'file', size: '5 KB' },
-    '/home/user/projects/webapp/styles.css': { type: 'file', size: '2 KB' },
-    '/home/user/projects/webapp/app.js': { type: 'file', size: '15 KB' }
+    '/home/user/projects/m-ai-ntenance/readme': { type: 'file', size: '5 KB' },
+    
   });
   
   // Focus input on mount and on click
@@ -254,14 +257,26 @@ const Terminal = () => {
       fileContents = "Meeting notes:\n- Discuss project timeline\n- Review design mockups\n- Assign tasks to team members";
     } else if (targetPath.includes('.jpg') || targetPath.includes('.png')) {
       fileContents = "[IMAGE CONTENT] Cannot display binary content.";
-    } else if (targetPath.includes('hello.txt')) {
-      fileContents = "Hello, world! Welcome to the terminal simulator.";
-    } else if (targetPath.includes('html')) {
-      fileContents = "<!DOCTYPE html>\n<html>\n<head>\n  <title>My Web App</title>\n</head>\n<body>\n  <h1>Welcome!</h1>\n</body>\n</html>";
+    } else if (targetPath.includes('readme.txt')) {
+      fileContents = "This terminal is here to help you navigation through the website using command lines.\n- It works like a zsh terminal.";
+    } else if (targetPath.includes('readme')) {
+      fileContents = "Creation of a Python application for predictive maintenance, using supervised learning, in destination of renewable energy production systems.\n- With the help of two PhDs from Laris Laboratory, we developed a GUI for easy manipulation of machine learning algorithms from the Sklearn package. \n- Drag and drop your .csv file, visualize/normalize your data, select features, train/test your model, and export your results.}";
     } else if (targetPath.includes('css')) {
       fileContents = "body {\n  font-family: sans-serif;\n  margin: 0;\n  padding: 20px;\n}";
     } else if (targetPath.includes('js')) {
       fileContents = "// Main application code\nconst app = {\n  init() {\n    console.log('App initialized');\n  }\n};\n\napp.init();";
+    } else if (targetPath.includes('polytech-paris-saclay.txt')) {
+      fileContents = "Engineering degree in Computer Science and applied Mathematics at the 'École Polytechnique de l'université Paris-Saclay', the 12th University in the Shanghai ranking. Followed classes in : Software Development, Databases, OS, Machine Learning, Networks, Mathematics, ... ";
+    } else if (targetPath.includes('polytech-angers.txt')) {
+      fileContents = "Preparatory classes specialized in Mathematics, Physics and Computer Science.";
+    } else if (targetPath.includes('linköping-universitet.txt')) {
+      fileContents = "Erasmus semester at the Linköping University. Following CS courses in Artficial Intelligence, Compilers, ...";
+    } else if (targetPath.includes('high-school.txt')) {
+      fileContents = "High school diploma specialized in Mathematics and Computer Science. I also followed the 'Expert Mathematics' option. With the honours.";
+    } else if (targetPath.includes('aboutme.txt')) {
+      fileContents = "I'm a passioned computer science engineering student, my curiosity and willingness to learn by myself pushed me to try a lot of different technologies (Python, Java, Html, C++, Rust, ...) and projects (Youtube channel, ML software, ...) My goal is now to specialize myself in machine learning and applied mathematics.";
+    } else if (targetPath.includes('contact.txt')) {
+      fileContents = "-Mail : raimbaudnoah@gmail.com\n -Linkedin : https://www.linkedin.com/in/noah-raimbaud-069598272\n -GitHub : https://github.com/Noah-rmbd";
     }
     
     setHistory([...history, { text: fileContents, isCommand: false }]);
