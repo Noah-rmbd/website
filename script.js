@@ -1,223 +1,213 @@
-/**
- * Noah Raimbaud - Portfolio Website Scripts
- * Pure Vanilla JavaScript: Navigation, Scroll Tracking, Mobile Drawer & Copy Actions
- */
-
 document.addEventListener('DOMContentLoaded', () => {
-  // Elements
-  const navbarHeader = document.getElementById('main-header');
-  const mobileToggle = document.getElementById('mobile-menu-toggle');
-  const mobileDrawer = document.getElementById('mobile-drawer');
-  const drawerBackdrop = document.getElementById('drawer-backdrop');
-  const desktopLinks = document.querySelectorAll('.nav-menu .nav-link');
-  const mobileLinks = document.querySelectorAll('.mobile-nav-link');
-  const backToTopBtn = document.getElementById('back-to-top-btn');
-  const copyEmailBtn = document.getElementById('copy-email-btn');
-  const copyTextSpan = document.getElementById('copy-text');
+  initHeroNeural();
+  initCyberMenu();
+  initAccordions();
+  initScrollNav();
+  initProjectWindows();
+});
 
-  // Categories & Sections to track
-  const sectionIds = ['about', 'projects', 'education', 'experience'];
-  const sections = sectionIds
-    .map(id => document.getElementById(id))
-    .filter(Boolean);
+/* --- 0. Machine Learning Neural Architecture Hero Canvas --- */
+async function initHeroNeural() {
+  const canvas = document.getElementById('neural-canvas');
+  if (!canvas) return;
 
-  /* --------------------------------------------------------------------------
-     1. Sticky Navbar Visual State
-     -------------------------------------------------------------------------- */
-  const handleScrollNavbar = () => {
-    if (window.scrollY > 20) {
-      navbarHeader.classList.add('scrolled');
-    } else {
-      navbarHeader.classList.remove('scrolled');
-    }
-  };
+  try {
+    const { MLNeuralEngine } = await import('./mlNeuralEngine.js');
+    window.heroNeuralEngine = new MLNeuralEngine(canvas, {
+      colorRgb: '56, 189, 248', // Lumon Cold Cyan
+      scrollSpeed: 42,
+      columnSpacing: 180
+    });
+  } catch (err) {
+    console.warn('MLNeuralEngine could not be initialized:', err);
+  }
+}
 
-  window.addEventListener('scroll', handleScrollNavbar, { passive: true });
-  handleScrollNavbar();
+/* --- 2. Fullscreen Cyber Menu --- */
+function initCyberMenu() {
+  const burgerBtn = document.getElementById('burger-trigger');
+  const overlay = document.getElementById('cyber-menu-overlay');
+  const closeBtn = document.getElementById('menu-close-btn');
+  const overlayLinks = document.querySelectorAll('[data-overlay-link]');
 
-  /* --------------------------------------------------------------------------
-     2. Mobile Drawer Navigation Toggle
-     -------------------------------------------------------------------------- */
-  const openMobileMenu = () => {
-    mobileToggle.classList.add('is-active');
-    mobileToggle.setAttribute('aria-expanded', 'true');
-    mobileDrawer.classList.add('is-open');
-    mobileDrawer.setAttribute('aria-hidden', 'false');
-    document.body.style.overflow = 'hidden'; // Prevent background scrolling
-  };
+  function openMenu() {
+    overlay.classList.add('active');
+    overlay.setAttribute('aria-hidden', 'false');
+    burgerBtn.setAttribute('aria-expanded', 'true');
+    document.body.style.overflow = 'hidden';
+  }
 
-  const closeMobileMenu = () => {
-    mobileToggle.classList.remove('is-active');
-    mobileToggle.setAttribute('aria-expanded', 'false');
-    mobileDrawer.classList.remove('is-open');
-    mobileDrawer.setAttribute('aria-hidden', 'true');
+  function closeMenu() {
+    overlay.classList.remove('active');
+    overlay.setAttribute('aria-hidden', 'true');
+    burgerBtn.setAttribute('aria-expanded', 'false');
     document.body.style.overflow = '';
-  };
+  }
 
-  if (mobileToggle) {
-    mobileToggle.addEventListener('click', () => {
-      const isOpen = mobileDrawer.classList.contains('is-open');
-      if (isOpen) {
-        closeMobileMenu();
-      } else {
-        openMobileMenu();
-      }
+  if (burgerBtn) burgerBtn.addEventListener('click', openMenu);
+  if (closeBtn) closeBtn.addEventListener('click', closeMenu);
+
+  overlayLinks.forEach(link => {
+    link.addEventListener('click', () => {
+      closeMenu();
     });
-  }
+  });
 
-  if (drawerBackdrop) {
-    drawerBackdrop.addEventListener('click', closeMobileMenu);
-  }
-
-  // Close drawer on Escape key
   document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape' && mobileDrawer.classList.contains('is-open')) {
-      closeMobileMenu();
+    if (e.key === 'Escape' && overlay.classList.contains('active')) {
+      closeMenu();
     }
   });
+}
 
-  // Handle mobile drawer link navigation
-  mobileLinks.forEach(link => {
-    link.addEventListener('click', (e) => {
-      const targetHref = link.getAttribute('href');
-      if (targetHref && targetHref.startsWith('#')) {
-        e.preventDefault();
-        const targetSection = document.querySelector(targetHref);
+/* --- 3. Accordions for Services & FAQ --- */
+function initAccordions() {
+  // Services Accordion
+  const serviceHeaders = document.querySelectorAll('.service-header');
+  serviceHeaders.forEach(header => {
+    header.addEventListener('click', () => {
+      const item = header.parentElement;
+      const isActive = item.classList.contains('active');
 
-        // Close menu
-        closeMobileMenu();
+      // Close all other services
+      document.querySelectorAll('.service-item').forEach(i => {
+        i.classList.remove('active');
+        i.querySelector('.service-header').setAttribute('aria-expanded', 'false');
+      });
 
-        if (targetSection) {
-          // Smooth scroll to target section with offset
-          const navHeight = navbarHeader.offsetHeight || 76;
-          const targetPosition = targetSection.getBoundingClientRect().top + window.pageYOffset - navHeight - 16;
-
-          window.scrollTo({
-            top: targetPosition,
-            behavior: 'smooth'
-          });
-
-          // Update active states
-          const sectionId = targetHref.replace('#', '');
-          updateActiveNavLink(sectionId);
-          history.pushState(null, '', targetHref);
-        }
+      if (!isActive) {
+        item.classList.add('active');
+        header.setAttribute('aria-expanded', 'true');
       }
     });
   });
 
-  // Handle desktop nav links smooth scroll
-  desktopLinks.forEach(link => {
-    link.addEventListener('click', (e) => {
-      const targetHref = link.getAttribute('href');
-      if (targetHref && targetHref.startsWith('#')) {
-        e.preventDefault();
-        const targetSection = document.querySelector(targetHref);
-        if (targetSection) {
-          const navHeight = navbarHeader.offsetHeight || 76;
-          const targetPosition = targetSection.getBoundingClientRect().top + window.pageYOffset - navHeight - 16;
+  // FAQ Accordion
+  const faqQuestions = document.querySelectorAll('.faq-question');
+  faqQuestions.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const item = btn.parentElement;
+      const isActive = item.classList.contains('active');
 
-          window.scrollTo({
-            top: targetPosition,
-            behavior: 'smooth'
-          });
+      // Close other FAQ items
+      document.querySelectorAll('.faq-item').forEach(i => {
+        i.classList.remove('active');
+        i.querySelector('.faq-question').setAttribute('aria-expanded', 'false');
+      });
 
-          const sectionId = targetHref.replace('#', '');
-          updateActiveNavLink(sectionId);
-          history.pushState(null, '', targetHref);
-        }
+      if (!isActive) {
+        item.classList.add('active');
+        btn.setAttribute('aria-expanded', 'true');
       }
     });
   });
 
-  /* --------------------------------------------------------------------------
-     3. Active Category Highlighting on Scroll (Intersection Observer)
-     -------------------------------------------------------------------------- */
-  const updateActiveNavLink = (activeId) => {
-    desktopLinks.forEach(link => {
-      const href = link.getAttribute('href').replace('#', '');
-      if (href === activeId) {
-        link.classList.add('active');
-      } else {
-        link.classList.remove('active');
-      }
-    });
+  // Expandable Education / Experience rows
+  const expItems = document.querySelectorAll('.exp-item.exp-expandable');
+  expItems.forEach(item => {
+    const trigger = item.querySelector('.exp-row');
+    if (!trigger) return;
 
-    mobileLinks.forEach(link => {
-      const href = link.getAttribute('href').replace('#', '');
-      if (href === activeId) {
-        link.classList.add('active');
-      } else {
-        link.classList.remove('active');
-      }
-    });
-  };
-
-  if ('IntersectionObserver' in window && sections.length > 0) {
-    const observerOptions = {
-      root: null,
-      rootMargin: '-20% 0px -60% 0px',
-      threshold: 0
+    const toggle = () => {
+      const isActive = item.classList.contains('active');
+      item.classList.toggle('active', !isActive);
+      trigger.setAttribute('aria-expanded', String(!isActive));
     };
 
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          updateActiveNavLink(entry.target.id);
-        }
-      });
-    }, observerOptions);
-
-    sections.forEach(section => observer.observe(section));
-  } else {
-    // Fallback on scroll
-    window.addEventListener('scroll', () => {
-      const scrollY = window.pageYOffset;
-      sections.forEach(section => {
-        const sectionHeight = section.offsetHeight;
-        const sectionTop = section.offsetTop - 120;
-        const sectionId = section.getAttribute('id');
-        if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
-          updateActiveNavLink(sectionId);
-        }
-      });
-    }, { passive: true });
-  }
-
-  /* --------------------------------------------------------------------------
-     4. Back to Top Button
-     -------------------------------------------------------------------------- */
-  if (backToTopBtn) {
-    backToTopBtn.addEventListener('click', () => {
-      window.scrollTo({
-        top: 0,
-        behavior: 'smooth'
-      });
-    });
-  }
-
-  /* --------------------------------------------------------------------------
-     5. Copy Email to Clipboard
-     -------------------------------------------------------------------------- */
-  if (copyEmailBtn && copyTextSpan) {
-    copyEmailBtn.addEventListener('click', async () => {
-      const email = copyEmailBtn.getAttribute('data-email') || 'noah.raimbaud@example.com';
-      try {
-        await navigator.clipboard.writeText(email);
-        const originalText = copyTextSpan.textContent;
-        copyTextSpan.textContent = 'Copied!';
-        copyEmailBtn.style.borderColor = 'var(--accent-emerald)';
-        copyEmailBtn.style.color = 'var(--accent-emerald)';
-
-        setTimeout(() => {
-          copyTextSpan.textContent = originalText;
-          copyEmailBtn.style.borderColor = '';
-          copyEmailBtn.style.color = '';
-        }, 2200);
-      } catch (err) {
-        // Fallback prompt
-        window.prompt('Copy email:', email);
+    trigger.addEventListener('click', toggle);
+    trigger.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        toggle();
       }
     });
-  }
-});
+  });
+}
+
+/* --- 4. ScrollSpy / Active Navigation --- */
+function initScrollNav() {
+  const sections = document.querySelectorAll('section[id], footer[id]');
+  const navLinks = document.querySelectorAll('.cyber-nav-link');
+
+  window.addEventListener('scroll', () => {
+    let current = '';
+    const scrollPos = window.pageYOffset + 150;
+
+    sections.forEach(section => {
+      const sectionTop = section.offsetTop;
+      const sectionHeight = section.offsetHeight;
+      if (scrollPos >= sectionTop && scrollPos < sectionTop + sectionHeight) {
+        current = section.getAttribute('id');
+      }
+    });
+
+    navLinks.forEach(link => {
+      const linkTarget = link.getAttribute('data-nav');
+      if (!linkTarget) return;
+
+      if (linkTarget === current || (current === 'contact-footer' && linkTarget === 'contact')) {
+        link.classList.add('active');
+        link.textContent = `< ${link.textContent.replace(/[<>]/g, '').trim()} >`;
+      } else {
+        link.classList.remove('active');
+        link.textContent = link.textContent.replace(/[<>]/g, '').trim();
+      }
+    });
+  });
+}
+
+/* --- 5. Project Window Controls ([_] and [X]) --- */
+function initProjectWindows() {
+  const cards = document.querySelectorAll('.retro-window-card');
+
+  cards.forEach(card => {
+    const toggleBtn = card.querySelector('.win-toggle-size');
+    const closeBtn = card.querySelector('.win-close');
+    const titleLink = card.querySelector('.window-title-link');
+    const titleText = titleLink ? titleLink.textContent.trim() : 'Project Window';
+
+    if (toggleBtn) {
+      toggleBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+
+        const isMinimized = card.classList.toggle('is-minimized');
+        if (isMinimized) {
+          toggleBtn.textContent = '[+]';
+          toggleBtn.setAttribute('title', 'Expand window');
+          toggleBtn.setAttribute('aria-label', 'Expand window');
+        } else {
+          toggleBtn.textContent = '[_]';
+          toggleBtn.setAttribute('title', 'Reduce window');
+          toggleBtn.setAttribute('aria-label', 'Reduce window');
+        }
+      });
+    }
+
+    if (closeBtn) {
+      closeBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+
+        card.classList.add('is-closed');
+
+        const banner = document.createElement('div');
+        banner.className = 'window-reopen-banner';
+        banner.innerHTML = `
+          <span>&gt; [CLOSED] ${titleText}</span>
+          <button type="button" class="reopen-btn" aria-label="Reopen project window">[REOPEN &#x21BA;]</button>
+        `;
+
+        card.parentNode.insertBefore(banner, card);
+
+        const reopenBtn = banner.querySelector('.reopen-btn');
+        reopenBtn.addEventListener('click', (ev) => {
+          ev.preventDefault();
+          card.classList.remove('is-closed');
+          banner.remove();
+        });
+      });
+    }
+  });
+}
+

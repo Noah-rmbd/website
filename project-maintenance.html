@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <title>>_ Noah_Raimbaud | M/ai/ntenance</title>
+
+  <!-- Google Fonts: Geist Mono, Fragment Mono, Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Fragment+Mono:ital@0;1&family=Geist+Mono:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700;900&display=swap"
+    rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+  <!-- Retro CRT Scanline & Ambient Vignette -->
+  <div class="ambient-glow" aria-hidden="true"></div>
+  <div class="crt-scanlines" aria-hidden="true"></div>
+
+  <!-- Fixed Cyber Header / Navbar -->
+  <div class="header-container">
+    <header class="cyber-header" id="main-header">
+      <div class="header-inner">
+        <!-- Brand Logo -->
+        <a href="index.html#home" class="cyber-logo" id="cyber-logo" aria-label="Home">
+          <div class="logo-box">
+            <span class="logo-top">>_ Noah</span>
+            <span class="logo-top">Raimbaud</span>
+          </div>
+        </a>
+
+        <!-- Desktop Navigation Links -->
+        <nav class="desktop-nav" aria-label="Primary Navigation">
+          <a href="index.html#about" class="cyber-nav-link" data-nav="about">About me</a>
+          <a href="index.html#projects" class="cyber-nav-link" data-nav="projects">Projects</a>
+          <a href="index.html#experience" class="cyber-nav-link" data-nav="experience">Experience</a>
+        </nav>
+
+        <!-- Header Actions: Contact button on desktop, Hamburger on mobile -->
+        <div class="header-actions">
+          <a href="#contact-footer" class="header-contact-btn">Contact</a>
+          <button class="burger-trigger" id="burger-trigger" aria-label="Open Fullscreen Menu" aria-expanded="false">
+            <span class="burger-icon">
+              <span class="burger-line"></span>
+              <span class="burger-line"></span>
+              <span class="burger-line"></span>
+            </span>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <!-- Fullscreen Cyber Menu Overlay -->
+    <div class="cyber-menu-overlay" id="cyber-menu-overlay" aria-hidden="true">
+      <div class="menu-overlay-backdrop"></div>
+      <div class="menu-overlay-container">
+        <div class="menu-overlay-header">
+          <div class="logo-box">
+            <span class="logo-top">>_ Noah</span>
+            <span class="logo-top">Raimbaud</span>
+          </div>
+          <button class="menu-close-btn" id="menu-close-btn" aria-label="Close Menu">
+            [X] CLOSE
+          </button>
+        </div>
+
+        <nav class="menu-links-list">
+          <a href="index.html#home" class="menu-link-item" data-overlay-link>
+            <span class="menu-link-text">HOME</span>
+            <span class="menu-arrow">&#x2197;</span>
+          </a>
+          <a href="index.html#projects" class="menu-link-item" data-overlay-link>
+            <span class="menu-link-text">PROJECTS[3]</span>
+            <span class="menu-arrow">&#x2197;</span>
+          </a>
+          <a href="index.html#about" class="menu-link-item" data-overlay-link>
+            <span class="menu-link-text">ABOUT</span>
+            <span class="menu-arrow">&#x2197;</span>
+          </a>
+          <a href="index.html#services" class="menu-link-item" data-overlay-link>
+            <span class="menu-link-text">SERVICE</span>
+            <span class="menu-arrow">&#x2197;</span>
+          </a>
+          <a href="index.html#experience" class="menu-link-item" data-overlay-link>
+            <span class="menu-link-text">EXPERIENCE</span>
+            <span class="menu-arrow">&#x2197;</span>
+          </a>
+        </nav>
+
+        <div class="menu-overlay-footer">
+          <a href="#contact-footer" class="menu-contact-btn" data-overlay-link>Contact</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ARTICLE MAIN CONTENT -->
+  <main class="article-main" id="main-content">
+    <article class="article-container">
+
+      <!-- Breadcrumb / Back button -->
+      <a href="index.html#projects" class="article-back-link">
+        <span>&larr;</span>
+        <span>[ BACK TO ALL PROJECTS ]</span>
+      </a>
+
+      <!-- Article Header -->
+      <header class="article-header">
+        <div class="cyber-badge">
+          <span class="badge-icon">&#x1F4BE;</span>
+          <span class="badge-text">Project // 02</span>
+        </div>
+
+        <h1 class="article-title">M/ai/ntenance: Predictive maintenance GUI for Renewable Energy
+          Systems</h1>
+
+        <p class="article-lead">
+          An intuitive and adaptable application for doing supervised Machine Learning for fault detection in Renewable
+          Energy Systems.
+        </p>
+
+        <!-- Metadata Specs Grid -->
+        <div class="article-meta-grid">
+          <div class="article-meta-col">
+            <span class="meta-label">// TIMELINE</span>
+            <span class="meta-value">Q1 2024 (3 Mos)</span>
+          </div>
+          <div class="article-meta-col">
+            <span class="meta-label">// ROLE</span>
+            <span class="meta-value">Student project</span>
+          </div>
+          <div class="article-meta-col">
+            <span class="meta-label">// STACK</span>
+            <span class="meta-value">Python, PyQt6, Scikit-Learn, NumPy, Pandas</span>
+          </div>
+          <div class="article-meta-col">
+            <span class="meta-label">// STATUS</span>
+            <span class="meta-value">Ended</span>
+          </div>
+        </div>
+      </header>
+
+      <!-- Featured Retro OS Window -->
+      <div class="article-featured-window">
+        <div class="retro-window-card">
+          <div class="window-title-bar">
+            <div class="window-title-left">
+              <span class="window-title-text">M/ai/ntenance</span>
+            </div>
+            <div class="window-controls">
+              <button class="win-btn win-toggle-size" title="Reduce / Expand window"
+                aria-label="Reduce or expand window">[_]</button>
+            </div>
+          </div>
+          <div class="window-content">
+            <img src="assets/screenshot_maintenance.png" alt="Maintenance screenshot" class="project-mockup">
+          </div>
+        </div>
+      </div>
+
+      <!-- ======================================================= -->
+      <!-- EDITABLE ARTICLE CONTENT AREA (Write your text below)    -->
+      <!-- ======================================================= -->
+      <div class="article-body-content">
+
+        <!-- Section 1 -->
+        <section class="article-section">
+          <h2 class="article-section-title">
+            <span>01</span>
+            <span>Project Overview &amp; Challenge</span>
+          </h2>
+          <p class="article-text">
+            As renewable energy infrastructures expand, transitioning from curative repairs to predictive maintenance is
+            essential to lower operational costs, minimize downtime, and optimize power generation. In collaboration
+            with Louis Arnaud and supervised by doctoral researcher Bassel Chokr and Dr. Nizar Chatti at the LARIS
+            laboratory (Polytech Angers), we designed and implemented M/ai/ntenance—a generic desktop application
+            engineered to streamline the fault diagnosis pipeline for photovoltaic systems and industrial equipment.
+            The software bridges the gap between academic machine learning research and practical application, providing
+            non-expert operators with an end-to-end, guided graphical interface to process raw measurement datasets,
+            extract critical features, train supervised classification models, and benchmark performance metrics.
+          </p>
+          <div class="article-highlight-box">
+            "This project was my first experience with the machine learning domain, thanks to the support of Nizar
+            Chatti
+            and
+            Bassel Chokr, it was an excellent opportunity to learn the basics."
+          </div>
+        </section>
+
+        <!-- Section 2 -->
+        <section class="article-section">
+          <h2 class="article-section-title">
+            <span>02</span>
+            <span>Architecture &amp; Technical Implementation</span>
+          </h2>
+          <p class="article-text">
+            The application guides the user step-by-step through a modular machine learning pipeline:
+          </p>
+
+          <!-- Rich Bullet Points with Sub-title and Paragraph -->
+          <ul class="article-bullet-list">
+            <li class="article-bullet-item">
+              <span class="article-bullet-marker">&gt;</span>
+              <div class="article-bullet-content">
+                <h3 class="article-bullet-title">Data Ingestion & Visual Exploration</h3>
+                <p class="article-bullet-text">
+                  Supports drag-and-drop loading for CSV, XLSX, and Parquet data formats. Users can inspect tabular
+                  data, compute descriptive statistics (mean, standard deviation), and generate interactive exploratory
+                  plots—including correlation heatmaps, box plots, histograms, and scatter plots.
+                </p>
+              </div>
+            </li>
+            <li class="article-bullet-item">
+              <span class="article-bullet-marker">&gt;</span>
+              <div class="article-bullet-content">
+                <h3 class="article-bullet-title">Data Preprocessing</h3>
+                <p class="article-bullet-text">
+                  Offers integrated tools for manual feature removal, dataset splitting into customizable train/test
+                  proportions, and scaling transformations (Min-Max normalization and standard score standardization).
+                </p>
+              </div>
+            </li>
+            <li class="article-bullet-item">
+              <span class="article-bullet-marker">&gt;</span>
+              <div class="article-bullet-content">
+                <h3 class="article-bullet-title">Dimensionality Reduction and Feature Selection</h3>
+                <p class="article-bullet-text">
+                  Employs an Information Gain (entropy-based) ranking engine with interactive threshold filtering, as
+                  well as Principal Component Analysis (PCA) to eliminate redundant signals, optimize training times,
+                  and mitigate overfitting.
+                </p>
+              </div>
+            </li>
+            <li class="article-bullet-item">
+              <span class="article-bullet-marker">&gt;</span>
+              <div class="article-bullet-content">
+                <h3 class="article-bullet-title">Multi-Model Training Suite</h3>
+                <p class="article-bullet-text">
+                  Integrates four supervised classification algorithms via Scikit-Learn: Decision Trees (CART),
+                  K-Nearest Neighbors (KNN), Random Forest, and Multi-layer Perceptron (MLP), complete with tunable
+                  hyperparameters.
+                </p>
+              </div>
+            </li>
+            <li class="article-bullet-item">
+              <span class="article-bullet-marker">&gt;</span>
+              <div class="article-bullet-content">
+                <h3 class="article-bullet-title">Model Evaluation and Export</h3>
+                <p class="article-bullet-text">
+                  Features a comparative dashboard displaying training and inference runtimes, multi-class confusion
+                  matrices, and detailed performance scores (Accuracy, Precision, Recall, and F1-score). Retained models
+                  can be exported directly as serialized .pkl binaries or documented Python .txt deployment scripts.
+                </p>
+              </div>
+            </li>
+          </ul>
+        </section>
+
+        <!-- Section 3 -->
+        <section class="article-section">
+          <h2 class="article-section-title">
+            <span>03</span>
+            <span>Ressources &amp; More details</span>
+          </h2>
+          <p class="article-text">
+            A french article details how we created this application: <a href="documents/maintenance_report.pdf"
+              target="_blank" rel="noopener noreferrer" class="link"><u>French Report</u></a><br>
+            Code is available on GitHub: <a href="https://github.com/Noah-rmbd/M-AI-ntenance" target="_blank"
+              rel="noopener noreferrer" class="link"><u>Repository link</u></a><br>
+            Link to the original scientific paper: <a href="https://univ-angers.hal.science/hal-04436119/document"
+              target="_blank" rel="noopener noreferrer" class="link"><u>Scientific Article</u></a>
+          </p>
+        </section>
+
+      </div>
+      <!-- ======================================================= -->
+      <!-- END OF EDITABLE CONTENT AREA                            -->
+      <!-- ======================================================= -->
+
+      <!-- Project Navigation Footer -->
+      <nav class="article-nav-footer" aria-label="Project Navigation">
+        <a href="project-trajectory-plausibility-analysis.html" class="article-nav-btn nav-prev">
+          <span class="article-nav-subtitle">&larr; Previous Project</span>
+          <span class="article-nav-title">Trajectory plausibility analysis</span>
+        </a>
+        <a href="project-startux.html" class="article-nav-btn nav-next">
+          <span class="article-nav-subtitle">Next Project &rarr;</span>
+          <span class="article-nav-title">Startux: A 3D spatial game</span>
+        </a>
+      </nav>
+
+    </article>
+  </main>
+
+  <!-- GIANT FOOTER BRANDING SECTION (NO CONTACT FORM) -->
+  <footer class="cyber-footer" id="contact-footer">
+    <div class="footer-split-container">
+
+      <!-- Left Portrait Art -->
+      <div class="footer-portrait-col">
+        <img src="assets/footer_image.png" alt="Noah Raimbaud Portrait" class="footer-portrait-img">
+      </div>
+
+      <!-- Right Giant Typo & Contact Infos -->
+      <div class="footer-content-col">
+        <div class="footer-giant-logo">
+          >_ Noah Raimbaud
+        </div>
+
+        <div class="footer-direct-contact">
+          <a href="mailto:raimbaudnoah@gmail.com" class="footer-email">raimbaudnoah@gmail.com</a>
+          <span class="footer-phone">+33 783564830</span>
+        </div>
+
+        <div class="footer-nav-grid">
+          <div class="footer-nav-col">
+            <a href="#home" class="footer-link">HOME</a>
+            <a href="#projects" class="footer-link">PROJECTS</a>
+            <a href="#about" class="footer-link">ABOUT</a>
+            <a href="#contact-footer" class="footer-link">CONTACT</a>
+          </div>
+
+          <div class="footer-nav-col">
+            <a href="https://www.linkedin.com/in/noah-raimbaud-069598272" target="_blank" rel="noopener noreferrer"
+              class="footer-link">LINKEDIN</a>
+            <a href="https://github.com/Noah-rmbd" target="_blank" rel="noopener noreferrer"
+              class="footer-link">GITHUB</a>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </footer>
+
+  <script type="module" src="script.js"></script>
+</body>
+
+</html>

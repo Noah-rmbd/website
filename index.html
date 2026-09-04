@@ -4,446 +4,362 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description"
-    content="Noah Raimbaud - Professional Web Developer & Software Engineer Portfolio. Explore About Me, Projects, Education, and Experience.">
-  <meta name="keywords"
-    content="Noah Raimbaud, Portfolio, Web Developer, Software Engineer, Frontend, HTML, CSS, JavaScript">
-  <meta name="author" content="Noah Raimbaud">
-  <title>Noah Raimbaud | Portfolio</title>
+  <meta name="description" content="">
+  <meta name="keywords" content="">
+  <title>>_ Noah_Raimbaud</title>
 
-  <!-- Google Fonts -->
+  <!-- Google Fonts: Geist Mono, Fragment Mono, Inter -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Fragment+Mono:ital@0;1&family=Geist+Mono:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700;900&display=swap"
     rel="stylesheet">
-
-  <!-- Stylesheet -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&display=swap"
+    rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
+
 </head>
 
 <body>
 
-  <!-- Navigation Bar -->
-  <header class="navbar-wrapper" id="main-header">
-    <nav class="navbar" aria-label="Main Navigation">
-      <a href="#about" class="nav-brand" id="nav-brand-link">
-        <span class="brand-terminal">&gt;_</span>
-        <span class="brand-name">Noah Raimbaud</span>
-      </a>
+  <!-- Retro CRT Scanline & Ambient Vignette -->
+  <div class="ambient-glow" aria-hidden="true"></div>
+  <div class="crt-scanlines" aria-hidden="true"></div>
 
-      <!-- Desktop Navigation Menu -->
-      <ul class="nav-menu" id="desktop-menu">
-        <li class="nav-item">
-          <a href="#about" class="nav-link active" id="nav-link-about">
-            About me
-          </a>
-        </li>
-        <li class="nav-item">
-          <a href="#projects" class="nav-link" id="nav-link-projects">
-            Projects
-          </a>
-        </li>
-        <li class="nav-item">
-          <a href="#education" class="nav-link" id="nav-link-education">
-            Education
-          </a>
-        </li>
-        <li class="nav-item">
-          <a href="#experience" class="nav-link" id="nav-link-experience">
-            Experience
-          </a>
-        </li>
-      </ul>
+  <!-- Fixed Cyber Header / Navbar -->
+  <div class="header-container">
+    <header class="cyber-header" id="main-header">
+      <div class="header-inner">
+        <!-- Brand Logo -->
+        <a href="#home" class="cyber-logo" id="cyber-logo" aria-label="Home">
+          <div class="logo-box">
+            <span class="logo-top">>_ Noah</span>
+            <span class="logo-top">Raimbaud</span>
+          </div>
+        </a>
 
-      <!-- Action Button & Mobile Hamburger -->
-      <div class="nav-actions">
-        <a href="#contact" class="btn btn-outline btn-sm" id="nav-contact-btn">Contact</a>
+        <!-- Desktop Navigation Links -->
+        <nav class="desktop-nav" aria-label="Primary Navigation">
+          <a href="#about" class="cyber-nav-link" data-nav="about">About me</a>
+          <a href="#projects" class="cyber-nav-link" data-nav="projects">Projects</a>
+          <a href="#experience" class="cyber-nav-link" data-nav="experience">Experience</a>
+        </nav>
 
-        <button class="hamburger-btn" id="mobile-menu-toggle" aria-label="Toggle navigation menu" aria-expanded="false"
-          aria-controls="mobile-drawer">
-          <span class="hamburger-bar"></span>
-          <span class="hamburger-bar"></span>
-          <span class="hamburger-bar"></span>
-        </button>
+        <!-- Header Actions: Contact button on desktop, Hamburger on mobile -->
+        <div class="header-actions">
+          <a href="#contact-footer" class="header-contact-btn">Contact</a>
+          <button class="burger-trigger" id="burger-trigger" aria-label="Open Fullscreen Menu" aria-expanded="false">
+            <span class="burger-icon">
+              <span class="burger-line"></span>
+              <span class="burger-line"></span>
+              <span class="burger-line"></span>
+            </span>
+          </button>
+        </div>
       </div>
-    </nav>
-  </header>
+    </header>
 
-  <!-- Mobile Drawer Menu -->
-  <aside class="mobile-drawer" id="mobile-drawer" aria-hidden="true">
-    <div class="drawer-backdrop" id="drawer-backdrop"></div>
-    <div class="mobile-drawer-content">
-      <ul class="mobile-nav-list" id="mobile-nav-list">
-        <li>
-          <a href="#about" class="mobile-nav-link" id="mobile-link-about">
-            About me
+    <!-- Fullscreen Cyber Menu Overlay -->
+    <div class="cyber-menu-overlay" id="cyber-menu-overlay" aria-hidden="true">
+      <div class="menu-overlay-backdrop"></div>
+      <div class="menu-overlay-container">
+        <div class="menu-overlay-header">
+          <div class="logo-box">
+            <span class="logo-top">>_ Noah</span>
+            <span class="logo-top">Raimbaud</span>
+          </div>
+          <button class="menu-close-btn" id="menu-close-btn" aria-label="Close Menu">
+            [X] CLOSE
+          </button>
+        </div>
+
+        <nav class="menu-links-list">
+          <a href="#home" class="menu-link-item" data-overlay-link>
+            <span class="menu-link-text">HOME</span>
+            <span class="menu-arrow">&#x2197;</span>
           </a>
-        </li>
-        <li>
-          <a href="#projects" class="mobile-nav-link" id="mobile-link-projects">
-            Projects
+          <a href="#projects" class="menu-link-item" data-overlay-link>
+            <span class="menu-link-text">PROJECTS[3]</span>
+            <span class="menu-arrow">&#x2197;</span>
           </a>
-        </li>
-        <li>
-          <a href="#education" class="mobile-nav-link" id="mobile-link-education">
-            Education
+          <a href="#about" class="menu-link-item" data-overlay-link>
+            <span class="menu-link-text">ABOUT</span>
+            <span class="menu-arrow">&#x2197;</span>
           </a>
-        </li>
-        <li>
-          <a href="#experience" class="mobile-nav-link" id="mobile-link-experience">
-            Experience
+          <a href="#services" class="menu-link-item" data-overlay-link>
+            <span class="menu-link-text">SERVICE</span>
+            <span class="menu-arrow">&#x2197;</span>
           </a>
-        </li>
-      </ul>
-      <div class="mobile-drawer-footer">
-        <a href="#contact" class="btn btn-primary" id="mobile-contact-btn">Contact Me</a>
+          <a href="#experience" class="menu-link-item" data-overlay-link>
+            <span class="menu-link-text">EXPERIENCE</span>
+            <span class="menu-arrow">&#x2197;</span>
+          </a>
+        </nav>
+
+        <div class="menu-overlay-footer">
+          <a href="#contact-footer" class="menu-contact-btn" data-overlay-link>Contact</a>
+        </div>
       </div>
     </div>
-  </aside>
+  </div>
 
-  <!-- Main Content Container -->
+
+
   <main id="main-content">
 
-    <!-- 1. CATEGORY: ABOUT ME -->
-    <section class="section hero-section" id="about" aria-labelledby="about-heading">
-      <div class="container">
-        <div class="hero-grid">
-          <div class="hero-content">
-            <div class="status-badge" id="status-badge">
-              <span class="status-pulse"></span>
-              <span class="status-text">Available for new opportunities</span>
-            </div>
+    <!-- HERO SECTION -->
+    <section class="hero-section" id="home">
+      <div class="hero-container">
+        <!-- Floating Role Tag -->
+        <div class="hero-role-tag">COMPUTER-SCIENCE STUDENT</div>
 
-            <h1 class="hero-title" id="about-heading">
-              Hi, I'm <span class="gradient-text">Noah Raimbaud</span>.<br>
-              Building modern, intuitive web solutions.
-            </h1>
+        <!-- Machine Learning Neural Architecture Canvas Wrapper -->
+        <div class="hero-art-wrapper">
+          <canvas id="neural-canvas" class="hero-neural-canvas"
+            aria-label="Infinite Machine Learning Neural Architecture Animation"></canvas>
+        </div>
 
-            <p class="hero-subtitle">
-              I am a dedicated software developer passionate about creating responsive, high-performance, and visually
-              captivating web applications. I bridge the gap between clean code architecture and seamless user
-              experiences.
+        <!-- Giant Typography Headline -->
+        <div class="hero-title-wrap">
+          <h1 class="hero-giant-title">Noah Raimbaud</h1>
+        </div>
+
+        <!-- Subtle coordinate / retro markers -->
+        <span class="corner-marker top-left" aria-hidden="true">+</span>
+        <span class="corner-marker top-right" aria-hidden="true">+</span>
+      </div>
+    </section>
+
+    <!-- ABOUT SECTION -->
+    <section class="section about-section" id="about">
+      <div class="section-center-container">
+        <!-- Brutalist Badge -->
+        <div class="cyber-badge">
+          <span class="badge-icon">&#x1F464;</span>
+          <span class="badge-text">ABOUT ME</span>
+        </div>
+
+        <!-- Section Heading -->
+        <h2 class="section-heading">I am currently looking for a 24 weeks final year internship, starting from March
+          2027</h2>
+
+        <!-- Inset Brutalist White Box -->
+        <div class="brutalist-card-white">
+          <div class="inner-border-box">
+            <p class="bio-statement">
+              I'm a passioned computer science engineering student, my curiosity and willingness to learn by myself
+              pushed me to experiment a variety of different technologies (Python, Java, C++, and Rust). I constantly
+              jump into new projects (Youtube channel, ML software, or 3D video game). My ultimate goal is to
+              specialize myself in machine learning and applied
+              mathematics to address future technological challenges: robotics, quantum computing, HPC, ...
             </p>
+          </div>
+        </div>
+      </div>
+    </section>
 
-            <div class="hero-cta-group">
-              <a href="#projects" class="btn btn-primary" id="hero-cta-projects">
-                <span>View Projects</span>
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                  stroke-linecap="round" stroke-linejoin="round">
-                  <line x1="5" y1="12" x2="19" y2="12"></line>
-                  <polyline points="12 5 19 12 12 19"></polyline>
-                </svg>
+    <!-- PROJECTS SECTION -->
+    <section class="section projects-section" id="projects">
+      <div class="section-center-container">
+        <!-- Brutalist Badge -->
+        <div class="cyber-badge">
+          <span class="badge-icon">&#x1F5C4;</span>
+          <span class="badge-text">PROJECTS</span>
+        </div>
+
+        <!-- Section Heading -->
+        <h2 class="section-heading">Some of the projects I’ve worked on, for fun or educational purpose</h2>
+
+        <!-- Projects List / Retro Windows -->
+        <div class="projects-list">
+
+          <!-- Project 1: Trajectory anomaly detection -->
+          <article class="retro-window-card" id="project-card-trajectory">
+            <div class="window-title-bar">
+              <div class="window-title-left">
+                <span class="window-icon">&#x1F47E;</span>
+                <a href="project-trajectory-plausibility-analysis.html" class="window-title-link">Trajectory anomaly
+                  prediction</a>
+              </div>
+              <div class="window-controls">
+                <button class="win-btn win-toggle-size" title="Reduce / Expand window"
+                  aria-label="Reduce or expand window">[_]</button>
+                <button class="win-btn win-close" title="Close window" aria-label="Close window">[X]</button>
+              </div>
+            </div>
+            <div class="window-content">
+              <a href="project-trajectory-plausibility-analysis.html" class="project-card-link"
+                aria-label="Read trajectory anomaly detection project article">
+                <div class="project-image-wrapper">
+                  <img src="assets/screenshot_trajectory_analysis.png" alt="Interactive visualization screenshot"
+                    class="project-mockup" loading="lazy">
+                  <div class="project-hover-overlay">
+                    <div class="project-hover-badge">
+                      <span class="hover-prompt">&gt; READ CASE STUDY</span>
+                      <span class="hover-arrow">&#x2197;</span>
+                    </div>
+                    <span class="hover-hint">[ CLICK TO OPEN ARTICLE ]</span>
+                  </div>
+                </div>
               </a>
-              <a href="#contact" class="btn btn-secondary" id="hero-cta-contact">Let's Talk</a>
-            </div>
-
-            <!-- Stats Bar -->
-            <div class="stats-row" id="quick-stats">
-              <div class="stat-item">
-                <span class="stat-number">3+</span>
-                <span class="stat-label">Years of Experience</span>
-              </div>
-              <div class="stat-divider"></div>
-              <div class="stat-item">
-                <span class="stat-number">20+</span>
-                <span class="stat-label">Projects Completed</span>
-              </div>
-              <div class="stat-divider"></div>
-              <div class="stat-item">
-                <span class="stat-number">100%</span>
-                <span class="stat-label">Commitment & Care</span>
-              </div>
-            </div>
-          </div>
-
-          <!-- About Details & Skill Cards -->
-          <div class="hero-card-col">
-            <div class="glass-card bio-card">
-              <div class="card-header-bar">
-                <div class="terminal-dots">
-                  <span class="dot red"></span>
-                  <span class="dot yellow"></span>
-                  <span class="dot green"></span>
-                </div>
-                <span class="terminal-title">noah-profile.json</span>
-              </div>
-              <div class="bio-card-body">
-                <p class="code-comment">// Core Philosophy & Tech Stack</p>
-                <p class="bio-text">
-                  "Focused on writing semantic, accessible, and performant web interfaces with attention to every
-                  micro-interaction and detail."
-                </p>
-                <h3 class="skills-heading">Primary Technical Skills</h3>
-                <div class="skill-tags" id="skill-tags-list">
-                  <span class="tag-pill">HTML5 & Semantics</span>
-                  <span class="tag-pill">Modern CSS3 & Flex/Grid</span>
-                  <span class="tag-pill">JavaScript (ES6+)</span>
-                  <span class="tag-pill">Responsive Design</span>
-                  <span class="tag-pill">DOM APIs</span>
-                  <span class="tag-pill">RESTful APIs</span>
-                  <span class="tag-pill">Git & Version Control</span>
-                  <span class="tag-pill">Web Performance</span>
-                  <span class="tag-pill">UI/UX Prototyping</span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- 2. CATEGORY: PROJECTS -->
-    <section class="section" id="projects" aria-labelledby="projects-heading">
-      <div class="container">
-        <div class="section-header">
-          <div class="section-tag">
-            <span class="nav-num">02.</span> Portfolio Work
-          </div>
-          <h2 class="section-title" id="projects-heading">Featured Projects</h2>
-          <p class="section-description">
-            A curated selection of responsive web applications, interactive dashboards, and developer tools built with a
-            focus on usability and clean code.
-          </p>
-        </div>
-
-        <!-- Project Cards Grid -->
-        <div class="projects-grid" id="projects-container">
-
-          <!-- Project 1 -->
-          <article class="project-card" id="project-card-1">
-            <div class="project-media">
-              <img src="assets/project1.jpg" alt="Nexus Analytics Dashboard Interface" class="project-img"
-                loading="lazy">
-              <div class="project-media-overlay">
-                <a href="#contact" class="project-preview-btn" aria-label="View Project 1 details">Live Demo</a>
-              </div>
-            </div>
-            <div class="project-details">
-              <div class="project-meta">
-                <span class="project-badge">Analytics & Telemetry</span>
-                <span class="project-year">2024</span>
-              </div>
-              <h3 class="project-title">Nexus Analytics Dashboard</h3>
-              <p class="project-summary">
-                A high-performance operational intelligence dashboard featuring dynamic real-time telemetry, geographic
-                event heatmaps, and customizable trend forecasting widgets.
-              </p>
-              <ul class="project-tech-list" aria-label="Technologies used">
-                <li>Vanilla JavaScript</li>
-                <li>CSS Grid Layout</li>
-                <li>REST APIs</li>
-                <li>SVG Data Charts</li>
-              </ul>
-              <div class="project-links">
-                <a href="#contact" class="project-link" id="project-demo-1">
-                  <span>Demo</span>
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
-                    <polyline points="15 3 21 3 21 9"></polyline>
-                    <line x1="10" y1="14" x2="21" y2="3"></line>
-                  </svg>
-                </a>
-                <a href="#contact" class="project-link" id="project-code-1">
-                  <span>Source</span>
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <polyline points="16 18 22 12 16 6"></polyline>
-                    <polyline points="8 6 2 12 8 18"></polyline>
-                  </svg>
-                </a>
-              </div>
             </div>
           </article>
 
-          <!-- Project 2 -->
-          <article class="project-card" id="project-card-2">
-            <div class="project-media">
-              <img src="assets/project2.jpg" alt="Nexus Cloud Automation and DevOps Interface" class="project-img"
-                loading="lazy">
-              <div class="project-media-overlay">
-                <a href="#contact" class="project-preview-btn" aria-label="View Project 2 details">Live Demo</a>
+          <!-- Project 2: M/ai/ntenance -->
+          <article class="retro-window-card" id="project-card-M/ai/ntenance">
+            <div class="window-title-bar">
+              <div class="window-title-left">
+                <span class="window-icon">&#x2726;</span>
+                <a href="project-maintenance.html" class="window-title-link">M/ai/ntenance</a>
+              </div>
+              <div class="window-controls">
+                <button class="win-btn win-toggle-size" title="Reduce / Expand window"
+                  aria-label="Reduce or expand window">[_]</button>
+                <button class="win-btn win-close" title="Close window" aria-label="Close window">[X]</button>
               </div>
             </div>
-            <div class="project-details">
-              <div class="project-meta">
-                <span class="project-badge">Cloud & DevOps</span>
-                <span class="project-year">2024</span>
-              </div>
-              <h3 class="project-title">CloudMesh Topology Studio</h3>
-              <p class="project-summary">
-                A modern infrastructure management and container orchestration interface displaying network topology
-                nodes, health pipelines, and automated zero-downtime deployment workflows.
-              </p>
-              <ul class="project-tech-list" aria-label="Technologies used">
-                <li>JavaScript (ES6+)</li>
-                <li>CSS Custom Properties</li>
-                <li>Responsive Design</li>
-                <li>WebSocket Feeds</li>
-              </ul>
-              <div class="project-links">
-                <a href="#contact" class="project-link" id="project-demo-2">
-                  <span>Demo</span>
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
-                    <polyline points="15 3 21 3 21 9"></polyline>
-                    <line x1="10" y1="14" x2="21" y2="3"></line>
-                  </svg>
-                </a>
-                <a href="#contact" class="project-link" id="project-code-2">
-                  <span>Source</span>
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <polyline points="16 18 22 12 16 6"></polyline>
-                    <polyline points="8 6 2 12 8 18"></polyline>
-                  </svg>
-                </a>
-              </div>
+            <div class="window-content">
+              <a href="project-maintenance.html" class="project-card-link"
+                aria-label="Read M/ai/ntenance project article">
+                <div class="project-image-wrapper">
+                  <img src="assets/screenshot_maintenance.png" alt="maintenance screenshot" class="project-mockup"
+                    loading="lazy">
+                  <div class="project-hover-overlay">
+                    <div class="project-hover-badge">
+                      <span class="hover-prompt">&gt; READ CASE STUDY</span>
+                      <span class="hover-arrow">&#x2197;</span>
+                    </div>
+                    <span class="hover-hint">[ CLICK TO OPEN ARTICLE ]</span>
+                  </div>
+                </div>
+              </a>
             </div>
           </article>
 
-          <!-- Project 3 -->
-          <article class="project-card" id="project-card-3">
-            <div class="project-media">
-              <img src="assets/project3.jpg" alt="KriptoSync Financial Asset Management UI" class="project-img"
-                loading="lazy">
-              <div class="project-media-overlay">
-                <a href="#contact" class="project-preview-btn" aria-label="View Project 3 details">Live Demo</a>
+          <!-- Project 3: Startux -->
+          <article class="retro-window-card" id="project-card-startux">
+            <div class="window-title-bar">
+              <div class="window-title-left">
+                <span class="window-icon">&#x2726;</span>
+                <a href="project-startux.html" class="window-title-link">Startux</a>
+              </div>
+              <div class="window-controls">
+                <button class="win-btn win-toggle-size" title="Reduce / Expand window"
+                  aria-label="Reduce or expand window">[_]</button>
+                <button class="win-btn win-close" title="Close window" aria-label="Close window">[X]</button>
               </div>
             </div>
-            <div class="project-details">
-              <div class="project-meta">
-                <span class="project-badge">Fintech & Web UI</span>
-                <span class="project-year">2023</span>
-              </div>
-              <h3 class="project-title">KriptoSync Asset Tracker</h3>
-              <p class="project-summary">
-                A sleek multi-currency wealth and asset tracker with responsive candlesticks, portfolio distribution
-                breakdown, and instant wallet balance calculations with zero external libraries.
-              </p>
-              <ul class="project-tech-list" aria-label="Technologies used">
-                <li>Semantic HTML5</li>
-                <li>Modern CSS Glassmorphism</li>
-                <li>Interactive JS DOM</li>
-                <li>Local Storage Cache</li>
-              </ul>
-              <div class="project-links">
-                <a href="#contact" class="project-link" id="project-demo-3">
-                  <span>Demo</span>
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
-                    <polyline points="15 3 21 3 21 9"></polyline>
-                    <line x1="10" y1="14" x2="21" y2="3"></line>
-                  </svg>
-                </a>
-                <a href="#contact" class="project-link" id="project-code-3">
-                  <span>Source</span>
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <polyline points="16 18 22 12 16 6"></polyline>
-                    <polyline points="8 6 2 12 8 18"></polyline>
-                  </svg>
-                </a>
-              </div>
+            <div class="window-content">
+              <a href="project-startux.html" class="project-card-link" aria-label="Read Startux project article">
+                <div class="project-image-wrapper">
+                  <img src="assets/screenshot_startux.png" alt="Startux screenshot" class="project-mockup"
+                    loading="lazy">
+                  <div class="project-hover-overlay">
+                    <div class="project-hover-badge">
+                      <span class="hover-prompt">&gt; READ CASE STUDY</span>
+                      <span class="hover-arrow">&#x2197;</span>
+                    </div>
+                    <span class="hover-hint">[ CLICK TO OPEN ARTICLE ]</span>
+                  </div>
+                </div>
+              </a>
             </div>
           </article>
-
         </div>
       </div>
     </section>
 
-    <!-- 3. CATEGORY: EDUCATION -->
-    <section class="section" id="education" aria-labelledby="education-heading">
-      <div class="container">
-        <div class="section-header">
-          <div class="section-tag">
-            <span class="nav-num">03.</span> Academic Foundations
-          </div>
-          <h2 class="section-title" id="education-heading">Education & Certifications</h2>
-          <p class="section-description">
-            Formal computer science training combined with continuous professional coursework in modern software
-            engineering practices.
-          </p>
+    <!-- TOOLS SECTION -->
+    <section class="section tools-section" id="tools">
+      <div class="section-center-container">
+        <!-- Brutalist Badge -->
+        <div class="cyber-badge">
+          <span class="badge-icon">&#x2699;</span>
+          <span class="badge-text">TOOLS</span>
         </div>
 
-        <div class="education-grid" id="education-container">
+        <!-- Section Heading -->
+        <h2 class="section-heading">Technologies and tools I've worked with</h2>
 
-          <!-- Education Card 1 -->
-          <div class="edu-card" id="edu-card-1">
-            <div class="edu-icon-badge">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                stroke-linecap="round" stroke-linejoin="round">
-                <path d="M22 10v6M2 10l10-5 10 5-10 5z"></path>
-                <path d="M6 12v5c3 3 9 3 12 0v-5"></path>
-              </svg>
+        <!-- Tools Grid (2 columns) -->
+        <div class="tools-grid">
+
+          <div class="tool-card">
+            <div class="tool-logo-box">
+              <img src="assets/cpp_icon.png" alt="Cpp" class="tool-icon">
             </div>
-            <div class="edu-content">
-              <div class="edu-header">
-                <span class="edu-degree">Bachelor of Science in Computer Science</span>
-                <span class="edu-period">2020 — 2024</span>
+            <div class="tool-info">
+              <div class="tool-name-row">
+                <span class="tool-name">C++</span>
+                <span class="tool-percent">Experimented</span>
               </div>
-              <h3 class="edu-school">Institute of Technology & Applied Sciences</h3>
-              <p class="edu-desc">
-                In-depth coursework in algorithms, data structures, computer systems architecture, database management,
-                and modern software engineering lifecycles.
-              </p>
-              <div class="edu-highlights">
-                <span class="highlight-tag">Graduated with High Honors</span>
-                <span class="highlight-tag">Algorithms & Web Systems</span>
-                <span class="highlight-tag">Dean's Honor List</span>
-              </div>
+              <span class="tool-sub">Low-level language</span>
             </div>
           </div>
 
-          <!-- Education Card 2 -->
-          <div class="edu-card" id="edu-card-2">
-            <div class="edu-icon-badge">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                stroke-linecap="round" stroke-linejoin="round">
-                <polygon
-                  points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2">
-                </polygon>
-              </svg>
+          <div class="tool-card">
+            <div class="tool-logo-box">
+              <img src="assets/tool-python.png" alt="Python" class="tool-icon">
             </div>
-            <div class="edu-content">
-              <div class="edu-header">
-                <span class="edu-degree">Full-Stack Web Engineering Certification</span>
-                <span class="edu-period">2023</span>
+            <div class="tool-info">
+              <div class="tool-name-row">
+                <span class="tool-name">Python</span>
+                <span class="tool-percent">Experimented</span>
               </div>
-              <h3 class="edu-school">Open Web Standards & Architecture Guild</h3>
-              <p class="edu-desc">
-                Specialized program focused on modern ECMAScript standards, responsive CSS layout paradigms, accessible
-                HTML semantics, and browser performance optimization.
-              </p>
-              <div class="edu-highlights">
-                <span class="highlight-tag">Semantic HTML5 & Accessibility</span>
-                <span class="highlight-tag">Advanced JavaScript & DOM</span>
-                <span class="highlight-tag">Web Performance Optimization</span>
-              </div>
+              <span class="tool-sub">Prototyping and ML language</span>
             </div>
           </div>
 
-          <!-- Education Card 3 -->
-          <div class="edu-card" id="edu-card-3">
-            <div class="edu-icon-badge">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                stroke-linecap="round" stroke-linejoin="round">
-                <circle cx="12" cy="12" r="10"></circle>
-                <polyline points="12 6 12 12 14 14"></polyline>
-              </svg>
+          <div class="tool-card">
+            <div class="tool-logo-box">
+              <img src="assets/rust_icon.png" alt="Rust" class="tool-icon">
             </div>
-            <div class="edu-content">
-              <div class="edu-header">
-                <span class="edu-degree">Certified Cloud Practitioner & Git Specialist</span>
-                <span class="edu-period">2022</span>
+            <div class="tool-info">
+              <div class="tool-name-row">
+                <span class="tool-name">Rust</span>
+                <span class="tool-percent">Beginner</span>
               </div>
-              <h3 class="edu-school">Cloud Engineering & DevOps Institute</h3>
-              <p class="edu-desc">
-                Core grounding in distributed infrastructure principles, CI/CD automated deployment pipelines, and
-                collaborative software versioning standards.
-              </p>
-              <div class="edu-highlights">
-                <span class="highlight-tag">Git Version Control</span>
-                <span class="highlight-tag">Cloud Infrastructure Basics</span>
-                <span class="highlight-tag">Deployment Pipelines</span>
+              <span class="tool-sub">Secured and low-level language</span>
+            </div>
+          </div>
+
+          <div class="tool-card">
+            <div class="tool-logo-box">
+              <img src="assets/java_icon.png" alt="Java" class="tool-icon">
+            </div>
+            <div class="tool-info">
+              <div class="tool-name-row">
+                <span class="tool-name">Java</span>
+                <span class="tool-percent">Confirmed</span>
               </div>
+              <span class="tool-sub">Multiplatform and object-oriented language</span>
+            </div>
+          </div>
+
+          <div class="tool-card">
+            <div class="tool-logo-box">
+              <img src="assets/sql_icon.png" alt="SQL" class="tool-icon">
+            </div>
+            <div class="tool-info">
+              <div class="tool-name-row">
+                <span class="tool-name">SQL</span>
+                <span class="tool-percent">Experimented</span>
+              </div>
+              <span class="tool-sub">RDBMS language</span>
+            </div>
+          </div>
+
+          <div class="tool-card">
+            <div class="tool-logo-box">
+              <img src="assets/numpy_icon.png" alt="Numpy" class="tool-icon">
+            </div>
+            <div class="tool-info">
+              <div class="tool-name-row">
+                <span class="tool-name">Numpy</span>
+                <span class="tool-percent">Experimented</span>
+              </div>
+              <span class="tool-sub">Universal math library</span>
             </div>
           </div>
 
@@ -451,180 +367,207 @@
       </div>
     </section>
 
-    <!-- 4. CATEGORY: EXPERIENCE -->
-    <section class="section" id="experience" aria-labelledby="experience-heading">
-      <div class="container">
-        <div class="section-header">
-          <div class="section-tag">
-            <span class="nav-num">04.</span> Career Pathway
-          </div>
-          <h2 class="section-title" id="experience-heading">Work Experience</h2>
-          <p class="section-description">
-            A chronological timeline of roles where I contributed to production web software, optimized user journeys,
-            and collaborated with cross-functional teams.
-          </p>
+    <!-- EXPERIENCE SECTION -->
+    <section class="section experience-section" id="experience">
+      <div class="section-center-container">
+        <!-- Brutalist Badge -->
+        <div class="cyber-badge">
+          <span class="badge-icon">&#x1F4BC;</span>
+          <span class="badge-text">EXPERIENCE</span>
         </div>
 
-        <!-- Experience Timeline -->
-        <div class="timeline" id="experience-timeline">
+        <!-- Section Heading -->
+        <h2 class="section-heading">My Experience So Far</h2>
 
-          <!-- Role 1 -->
-          <div class="timeline-item" id="exp-item-1">
-            <div class="timeline-marker">
-              <div class="timeline-dot"></div>
-              <div class="timeline-line"></div>
-            </div>
-            <div class="timeline-card">
-              <div class="timeline-header">
-                <div>
-                  <h3 class="timeline-role">Front-End Developer</h3>
-                  <div class="timeline-company">Horizon Digital Labs · Full-time</div>
+        <!-- Terminal Resume Card -->
+        <div class="terminal-resume-card">
+          <div class="terminal-card-top-bar">
+            <span class="terminal-title-text">&gt;RESUME</span>
+          </div>
+
+          <div class="terminal-resume-body">
+            <!-- Top Specs Row -->
+            <div class="resume-specs-box">
+              <div class="resume-avatar-col">
+                <img src="assets/resume_avatar.png" alt="Noah Raimbaud Portrait" class="resume-avatar-img">
+              </div>
+              <div class="resume-data-col">
+                <div class="data-row"><span class="data-label">Name:</span> <span class="data-value">Noah
+                    Raimbaud</span>
                 </div>
-                <span class="timeline-date">2024 — Present</span>
-              </div>
-              <p class="timeline-text">
-                Leading the client interface development for web dashboard products. Designing flexible, modular layout
-                systems and improving overall application responsiveness across desktop, tablet, and mobile browsers.
-              </p>
-              <ul class="timeline-bullets">
-                <li>Architected responsive design tokens and reusable UI components, speeding up feature delivery by
-                  35%.</li>
-                <li>Audited and resolved performance bottlenecks, elevating Core Web Vitals to 98+ across all metrics.
-                </li>
-                <li>Partnered with UX researchers and backend engineers to define clear API contracts and seamless
-                  interactions.</li>
-              </ul>
-              <div class="timeline-skills">
-                <span class="tag-pill-sm">JavaScript (ES6+)</span>
-                <span class="tag-pill-sm">Responsive CSS3</span>
-                <span class="tag-pill-sm">Performance Optimization</span>
-                <span class="tag-pill-sm">REST Integration</span>
-              </div>
-            </div>
-          </div>
-
-          <!-- Role 2 -->
-          <div class="timeline-item" id="exp-item-2">
-            <div class="timeline-marker">
-              <div class="timeline-dot"></div>
-              <div class="timeline-line"></div>
-            </div>
-            <div class="timeline-card">
-              <div class="timeline-header">
-                <div>
-                  <h3 class="timeline-role">Junior Web Developer</h3>
-                  <div class="timeline-company">Vanguard Media Systems · Full-time</div>
+                <div class="data-row"><span class="data-label">Age:</span> <span class="data-value">22 years old</span>
                 </div>
-                <span class="timeline-date">2022 — 2024</span>
-              </div>
-              <p class="timeline-text">
-                Developed responsive web portals and interactive customer-facing interfaces. Implemented accessible HTML
-                semantics, smooth CSS animations, and robust client-side validation logic.
-              </p>
-              <ul class="timeline-bullets">
-                <li>Built mobile-friendly customer portals ensuring 100% cross-browser fidelity across Safari, Chrome,
-                  and Firefox.</li>
-                <li>Integrated third-party APIs for billing, authentication, and dynamic catalog filtering.</li>
-                <li>Collaborated on agile sprints, code reviews, and automated testing routines.</li>
-              </ul>
-              <div class="timeline-skills">
-                <span class="tag-pill-sm">HTML5</span>
-                <span class="tag-pill-sm">Vanilla CSS</span>
-                <span class="tag-pill-sm">JavaScript</span>
-                <span class="tag-pill-sm">Git</span>
+                <div class="data-row"><span class="data-label">Location:</span> <span class="data-value">Bures sur
+                    Yvette,
+                    Essonne (ready to move)</span></div>
+                <div class="data-row"><span class="data-label">Current Role:</span> <span class="data-value">CS Student
+                  </span></div>
               </div>
             </div>
-          </div>
 
-          <!-- Role 3 -->
-          <div class="timeline-item" id="exp-item-3">
-            <div class="timeline-marker">
-              <div class="timeline-dot"></div>
-              <div class="timeline-line"></div>
-            </div>
-            <div class="timeline-card">
-              <div class="timeline-header">
-                <div>
-                  <h3 class="timeline-role">Software Engineering Intern</h3>
-                  <div class="timeline-company">Pulse Technologies · Internship</div>
+            <!-- Work Experience Section -->
+            <div class="work-exp-container">
+              <div class="work-exp-header">Work Experience</div>
+
+              <div class="exp-item exp-expandable">
+                <div class="exp-row" role="button" tabindex="0" aria-expanded="false"
+                  title="Click to expand/collapse details">
+                  <div class="exp-role">Research Intern</div>
+                  <div class="exp-company-time">
+                    <span class="exp-company">LISN/INRIA</span>
+                    <span class="exp-time">2026(18w)</span>
+                    <span class="exp-toggle-icon" aria-hidden="true">+</span>
+                  </div>
                 </div>
-                <span class="timeline-date">2021 — 2022</span>
+                <div class="exp-details">
+                  <div class="exp-details-inner">
+                    <div class="exp-desc">
+                      <!-- Add your description here -->
+                      <p>- Reviewed literature about crowd-sourced geospatial datasets plausibility <br>
+                        - Implemented an interactive platform to visualise trajectories datasets and their anomalies
+                        <br>
+                        - Implemented a machine learning pipeline to automate abnormal trajectories detection. (LSTM
+                        models, benchmark based on synthetic anomalies injection, ...)
+                      </p>
+                    </div>
+                  </div>
+                </div>
               </div>
-              <p class="timeline-text">
-                Assisted the engineering group in creating internal tooling, refactoring legacy CSS into modern layouts,
-                and writing technical documentation for onboarding developers.
-              </p>
-              <ul class="timeline-bullets">
-                <li>Constructed internal documentation portals with live code snippet testing tools.</li>
-                <li>Wrote automated unit test scripts and helped maintain bug tracking workflows.</li>
-              </ul>
-              <div class="timeline-skills">
-                <span class="tag-pill-sm">Web Basics</span>
-                <span class="tag-pill-sm">JavaScript</span>
-                <span class="tag-pill-sm">Documentation</span>
+
+              <div class="exp-item exp-expandable">
+                <div class="exp-row" role="button" tabindex="0" aria-expanded="false"
+                  title="Click to expand/collapse details">
+                  <div class="exp-role">Summer job</div>
+                  <div class="exp-company-time">
+                    <span class="exp-company">Sodebo</span>
+                    <span class="exp-time">2023-2024</span>
+                    <span class="exp-toggle-icon" aria-hidden="true">+</span>
+                  </div>
+                </div>
+                <div class="exp-details">
+                  <div class="exp-details-inner">
+                    <div class="exp-desc">
+                      <!-- Add your description here -->
+                      <p>- Assembled pizzas in a production unit<br>
+                        - Collaborated with production team to achieve production targets</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="exp-item exp-expandable">
+                <div class="exp-row" role="button" tabindex="0" aria-expanded="false"
+                  title="Click to expand/collapse details">
+                  <div class="exp-role">Intern</div>
+                  <div class="exp-company-time">
+                    <span class="exp-company">Prêt Constructions</span>
+                    <span class="exp-time">2022</span>
+                    <span class="exp-toggle-icon" aria-hidden="true">+</span>
+                  </div>
+                </div>
+                <div class="exp-details">
+                  <div class="exp-details-inner">
+                    <div class="exp-desc">
+                      <!-- Add your description here -->
+                      <p>- Contributed to the conception of a production unit<br>
+                        - Analysed a small-size company production system<br>
+                        - Researched and contacted suppliers</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+
+            <!-- Education Section -->
+            <div class="work-exp-container">
+              <div class="work-exp-header">Education</div>
+
+              <div class="exp-item exp-expandable">
+                <div class="exp-row" role="button" tabindex="0" aria-expanded="false"
+                  title="Click to expand/collapse details">
+                  <div class="exp-role">Engineering Master of Computer Science and Applied Mathematics</div>
+                  <div class="exp-company-time">
+                    <span class="exp-company">Université Paris-Saclay (Polytech)</span>
+                    <span class="exp-time">2024-2027</span>
+                    <span class="exp-toggle-icon" aria-hidden="true">+</span>
+                  </div>
+                </div>
+                <div class="exp-details">
+                  <div class="exp-details-inner">
+                    <div class="exp-desc">
+                      <!-- Add your description here -->
+                      <p>Engineering degree in Computer Science and applied Mathematics. Followed classes in: Software
+                        Development (C++, Java), UML, Databases (SQL), OS, Computer Graphics (OpenGL), Human Computer
+                        Interactions, Logic, ...</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="exp-item exp-expandable">
+                <div class="exp-row" role="button" tabindex="0" aria-expanded="false"
+                  title="Click to expand/collapse details">
+                  <div class="exp-role">Erasmus Semester</div>
+                  <div class="exp-company-time">
+                    <span class="exp-company">Linköping University, Sweden</span>
+                    <span class="exp-time">2025-2026</span>
+                    <span class="exp-toggle-icon" aria-hidden="true">+</span>
+                  </div>
+                </div>
+                <div class="exp-details">
+                  <div class="exp-details-inner">
+                    <div class="exp-desc">
+                      <!-- Add your description here -->
+                      <p>Exchange semester abroad, followed courses in: Advanced Databases and Models (NoSQL),
+                        Artificial Intelligence, Compiler Construction, Computer Network, and Project Management </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="exp-item exp-expandable">
+                <div class="exp-row" role="button" tabindex="0" aria-expanded="false"
+                  title="Click to expand/collapse details">
+                  <div class="exp-role">Preparatory Classes of Science</div>
+                  <div class="exp-company-time">
+                    <span class="exp-company">Université d'Angers (Polytech)</span>
+                    <span class="exp-time">2022-2025</span>
+                    <span class="exp-toggle-icon" aria-hidden="true">+</span>
+                  </div>
+                </div>
+                <div class="exp-details">
+                  <div class="exp-details-inner">
+                    <div class="exp-desc">
+                      <!-- Add your description here -->
+                      <p>Two years of advanced studies to prepare for entry exams to top universities. Coursework in
+                        Mathematics, Physics and Computer Science.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="exp-item exp-expandable">
+                <div class="exp-row" role="button" tabindex="0" aria-expanded="false"
+                  title="Click to expand/collapse details">
+                  <div class="exp-role">High school diploma</div>
+                  <div class="exp-company-time">
+                    <span class="exp-company">Charles Peguy High School</span>
+                    <span class="exp-time">2019-2022</span>
+                    <span class="exp-toggle-icon" aria-hidden="true">+</span>
+                  </div>
+                </div>
+                <div class="exp-details">
+                  <div class="exp-details-inner">
+                    <div class="exp-desc">
+                      <!-- Add your description here -->
+                      <p>Baccalaureate diploma specialized in Mathematics and Computer Science with 1st class honours.
+                      </p>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
-          </div>
-
-        </div>
-      </div>
-    </section>
-
-    <!-- CONTACT & CONNECT SECTION -->
-    <section class="section contact-section" id="contact" aria-labelledby="contact-heading">
-      <div class="container">
-        <div class="contact-card">
-          <div class="contact-badge">Get In Touch</div>
-          <h2 class="contact-title" id="contact-heading">Let's Build Something Great Together</h2>
-          <p class="contact-text">
-            Whether you have a question, a project opportunity, or just want to discuss software and web development, my
-            inbox is always open.
-          </p>
-          <div class="contact-buttons">
-            <a href="mailto:noah.raimbaud@example.com" class="btn btn-primary" id="email-contact-btn">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
-                <polyline points="22,6 12,13 2,6"></polyline>
-              </svg>
-              <span>Say Hello</span>
-            </a>
-            <button class="btn btn-secondary" id="copy-email-btn" data-email="noah.raimbaud@example.com">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
-                <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
-              </svg>
-              <span id="copy-text">Copy Email</span>
-            </button>
-          </div>
-
-          <div class="social-links-row">
-            <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="social-link"
-              aria-label="GitHub Profile" id="social-github">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path
-                  d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22">
-                </path>
-              </svg>
-              <span>GitHub</span>
-            </a>
-            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="social-link"
-              aria-label="LinkedIn Profile" id="social-linkedin">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
-                <rect x="2" y="9" width="4" height="12"></rect>
-                <circle cx="4" cy="4" r="2"></circle>
-              </svg>
-              <span>LinkedIn</span>
-            </a>
-            <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" class="social-link"
-              aria-label="Twitter Profile" id="social-twitter">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path
-                  d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z">
-                </path>
-              </svg>
-              <span>Twitter</span>
-            </a>
           </div>
         </div>
       </div>
@@ -632,36 +575,47 @@
 
   </main>
 
-  <!-- Footer -->
-  <footer class="footer" id="site-footer">
-    <div class="container footer-content">
-      <div class="footer-left">
-        <a href="#about" class="footer-brand">
-          <span class="brand-terminal">&gt;_</span> Noah Raimbaud
-        </a>
-        <p class="footer-copy">Built with semantic HTML5, modern CSS3, and JavaScript.</p>
+  <!-- GIANT FOOTER BRANDING SECTION (NO CONTACT FORM) -->
+  <footer class="cyber-footer" id="contact-footer">
+    <div class="footer-split-container">
+
+      <!-- Left Portrait Art -->
+      <div class="footer-portrait-col">
+        <img src="assets/footer_image.png" alt="Noah Raimbaud Portrait" class="footer-portrait-img">
       </div>
 
-      <nav class="footer-nav" aria-label="Footer Navigation">
-        <a href="#about" class="footer-link">About me</a>
-        <a href="#projects" class="footer-link">Projects</a>
-        <a href="#education" class="footer-link">Education</a>
-        <a href="#experience" class="footer-link">Experience</a>
-      </nav>
+      <!-- Right Giant Typo & Contact Infos -->
+      <div class="footer-content-col">
+        <div class="footer-giant-logo">
+          >_ Noah Raimbaud
+        </div>
 
-      <div class="footer-right">
-        <button class="back-to-top-btn" id="back-to-top-btn" aria-label="Scroll back to top">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <polyline points="18 15 12 9 6 15"></polyline>
-          </svg>
-          <span>Top</span>
-        </button>
+        <div class="footer-direct-contact">
+          <a href="mailto:raimbaudnoah@gmail.com" class="footer-email">raimbaudnoah@gmail.com</a>
+          <span class="footer-phone">+33 783564830</span>
+        </div>
+
+        <div class="footer-nav-grid">
+          <div class="footer-nav-col">
+            <a href="#home" class="footer-link">HOME</a>
+            <a href="#projects" class="footer-link">PROJECTS</a>
+            <a href="#about" class="footer-link">ABOUT</a>
+            <a href="#contact-footer" class="footer-link">CONTACT</a>
+          </div>
+
+          <div class="footer-nav-col">
+            <a href="https://www.linkedin.com/in/noah-raimbaud-069598272" target="_blank" rel="noopener noreferrer"
+              class="footer-link">LINKEDIN</a>
+            <a href="https://github.com/Noah-rmbd" target="_blank" rel="noopener noreferrer"
+              class="footer-link">GITHUB</a>
+          </div>
+        </div>
       </div>
+
     </div>
   </footer>
 
-  <!-- Script -->
-  <script src="script.js"></script>
+  <script type="module" src="script.js"></script>
 </body>
 
 </html>
