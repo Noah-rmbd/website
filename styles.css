@@ -937,11 +937,79 @@ button {
 .terminal-card-top-bar {
   background: var(--bg-card-white);
   color: var(--text-dark);
-  padding: 8px 16px;
+  padding: 6px 14px;
   font-family: var(--font-mono);
   font-size: 0.9rem;
   font-weight: 700;
-  text-align: left;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.terminal-title-text {
+  display: inline-flex;
+  align-items: center;
+  line-height: 1;
+}
+
+.terminal-resume-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.terminal-resume-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 10px;
+  background: transparent;
+  color: var(--text-dark);
+  border: 1px solid var(--text-dark);
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  text-decoration: none;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  user-select: none;
+}
+
+.terminal-resume-btn:hover {
+  background: var(--text-dark);
+  color: #ffffff;
+  border-color: var(--text-dark);
+  transform: translateY(-1px);
+}
+
+.terminal-resume-btn:active {
+  transform: translateY(0);
+}
+
+.resume-btn-tag {
+  background: var(--text-dark);
+  color: var(--bg-card-white);
+  padding: 1px 4px;
+  font-size: 0.7rem;
+  font-weight: 800;
+  border-radius: 2px;
+  transition: all 0.2s ease;
+}
+
+.terminal-resume-btn:hover .resume-btn-tag {
+  background: #ffffff;
+  color: var(--text-dark);
+}
+
+.resume-btn-arrow {
+  font-size: 0.85rem;
+  transition: transform 0.2s ease;
+}
+
+.terminal-resume-btn:hover .resume-btn-arrow {
+  transform: translate(2px, -2px);
 }
 
 .terminal-resume-body {
